@@ -1,0 +1,15 @@
+{
+  "algorand": {
+    "networkId": "algorand-mainnet",
+    "algodUrl": "https://mainnet-api.algonode.cloud",
+    "algodPort": "",
+    "algodToken": "",
+    "indexerUrl": "https://mainnet-idx.algonode.cloud",
+    "factories": {
+      "constantProduct": 1072843805,
+      "nftConstantProduct": 1076423760
+    },
+    "gasStation": 1027956681,
+    "pactApiUrl": "https://api.pact.fi"
+  }
+}
