@@ -108,13 +108,14 @@ node index.js
 
 ## Supported Pool Types
 
-- **Constant Product** (`CONST`): Standard x·y=k AMM pools — fully supported
-- **Stableswap** (`STABLE`): Curve-style stable pools — quotes use constant-product approximation (on-chain execution uses the correct stableswap invariant)
+- **Constant Product** (`CONST`): Standard x·y=k AMM pools — fully supported for quotes and transactions
+- **NFT Constant Product**: Same AMM math as constant product — fully supported
+- **Stableswap** (`STABLE`): Curve-style stable pools — `get_quote` returns an approximate result (with warning); `swap_txn` rejects stableswap pools since the constant-product math cannot produce correct minimum-received values for on-chain execution
 
 ## Known Limitations
 
-- Stableswap quote accuracy: off-chain quotes approximate using constant-product math. The on-chain contract uses the correct StableSwap invariant, so actual execution may differ slightly.
-- Pool discovery via API may not include all pools. For specific pools, use the `appId` parameter directly.
+- **Stableswap transactions**: Building swap/liquidity transactions for stableswap pools is not supported. The on-chain contract uses the StableSwap (Curve) invariant which requires different math than constant-product. `get_quote` provides an approximation with a warning.
+- **Pool discovery**: The PactFi API is used for token metadata (symbols, decimals, prices). For specific pools, use the `appId` parameter directly.
 
 ## License
 
